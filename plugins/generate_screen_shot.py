@@ -118,7 +118,7 @@ async def generate_screen_shot(bot, update):
                 #height=height,
                 supports_streaming=True,
                 # reply_markup=reply_markup,
-                thumb=thumb_image_path,
+                #thumb=thumb_image_path,
                 reply_to_message_id=update.reply_to_message.message_id,
                 progress=progress_for_pyrogram,
                 progress_args=(
