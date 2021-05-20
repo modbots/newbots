@@ -6,11 +6,13 @@ class Config(object):
     # get a token from @BotFather
     TG_BOT_TOKEN = "1406408953:AAGh-8WK3Sq6lnHWCjbkMDXBYQguTMRewiI"
     # The Telegram API things
-    APP_ID = "1438968"
+    APP_ID = 1438968
     API_HASH = "c0f0b02b10b2f31bdd15044d761de4e5"
     # Get these values from my.telegram.org
     # Array to store users who are authorized to use the bot
-    AUTH_USERS = "1247136776"
+    AUTH_USERS = [
+        "1247136776"
+    ]
     # the download location, where the HTTP Server runs
     DOWNLOAD_LOCATION = "./DOWNLOADS"
     # Telegram maximum file upload size
