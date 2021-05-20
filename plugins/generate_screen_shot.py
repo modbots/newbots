@@ -33,6 +33,15 @@ from helper_funcs.display_progress import progress_for_pyrogram
 async def generate_screen_shot(bot, update):
     TRChatBase(update.from_user.id, update.text, "generatescss")
     if update.reply_to_message is not None:
+        cmd, file_name = update.text.split(" ", 1)
+        if len(file_name) > 128:
+            await update.reply_text(
+                Translation.IFLONG_FILE_NAME.format(
+                    alimit="128",
+                    num=len(file_name)
+                )
+            )
+            return
         download_location = Config.DOWNLOAD_LOCATION + "/"
         a = await bot.send_message(
             chat_id=update.chat.id,
@@ -107,7 +116,7 @@ async def generate_screen_shot(bot, update):
             except:
                 pass
             await bot.edit_message_text(
-                text=Translation.AFTER_SUCCESSFUL_UPLOAD_MSG,
+                text=file_name,
                 chat_id=update.chat.id,
                 message_id=a.message_id,
                 disable_web_page_preview=True
