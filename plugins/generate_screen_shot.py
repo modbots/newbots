@@ -105,8 +105,8 @@ async def generate_screen_shot(bot, update):
                         i = i + 1
             await bot.send_media_group(
                 chat_id=update.chat.id,
-                video=the_real_download_location
-                supports_streaming=True
+                video=the_real_download_location,
+                supports_streaming=True,
                 disable_notification=True,
                 reply_to_message_id=a.message_id,
                 media=media_album_p
