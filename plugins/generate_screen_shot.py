@@ -113,11 +113,14 @@ async def generate_screen_shot(bot, update):
                
             ) 
             time.time()
+            metadata = extractMetadata(createParser(the_real_download_location))
+            if metadata.has("duration"):
+                duration = metadata.get('duration').seconds
             await bot.send_video(
                 chat_id=update.chat.id,
                 video=the_real_download_location,
                 caption="© @Modbots " + file_name,
-                #duration=duration,
+                duration=duration,
                 #width=width,
                 #height=height,
                 supports_streaming=True,
