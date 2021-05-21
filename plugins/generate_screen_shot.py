@@ -78,6 +78,24 @@ async def generate_screen_shot(bot, update):
                 9
             )
             logger.info(images)
+            await bot.send_video(
+                chat_id=update.chat.id,
+                video=the_real_download_location,
+                caption="© @Modbots " + file_name,
+                #duration=duration,
+                #width=width,
+                #height=height,
+                supports_streaming=True,
+                # reply_markup=reply_markup,
+                thumb=thumb_image_path,
+                reply_to_message_id=update.reply_to_message.message_id,
+                progress=progress_for_pyrogram,
+                progress_args=(
+                    Translation.UPLOAD_START,
+                    a,
+                    c_time
+                )
+            )
             await bot.edit_message_text(
                 text=Translation.UPLOAD_START,
                 chat_id=update.chat.id,
@@ -109,30 +127,9 @@ async def generate_screen_shot(bot, update):
                 disable_notification=True,
                 reply_to_message_id=a.message_id,
                 media=media_album_p
-                progress_args=(
-                    Translation.UPLOAD_START,
-                    a,
-                    c_time
-                )
+                
             )
-            await bot.send_video(
-                chat_id=update.chat.id,
-                video=the_real_download_location,
-                caption="© @Modbots " + file_name,
-                #duration=duration,
-                #width=width,
-                #height=height,
-                supports_streaming=True,
-                # reply_markup=reply_markup,
-                thumb=thumb_image_path,
-                reply_to_message_id=update.reply_to_message.message_id,
-                progress=progress_for_pyrogram,
-                progress_args=(
-                    Translation.UPLOAD_START,
-                    a,
-                    c_time
-                )
-            )
+            
             #
             try:
                 shutil.rmtree(tmp_directory_for_each_user)
