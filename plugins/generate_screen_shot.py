@@ -109,6 +109,11 @@ async def generate_screen_shot(bot, update):
                 disable_notification=True,
                 reply_to_message_id=a.message_id,
                 media=media_album_p
+                progress_args=(
+                    Translation.UPLOAD_START,
+                    a,
+                    c_time
+                )
             )
             await bot.send_video(
                 chat_id=update.chat.id,
