@@ -34,6 +34,7 @@ async def generate_screen_shot(bot, update):
     TRChatBase(update.from_user.id, update.text, "generatescss")
     if update.reply_to_message is not None:
         cmd, file_name = update.text.split(" ", 1)
+        thumb_image_path = Config.THUMBER + "/" + ".jpg"
         if len(file_name) > 128:
             await update.reply_text(
                 Translation.IFLONG_FILE_NAME.format(
@@ -105,8 +106,6 @@ async def generate_screen_shot(bot, update):
                         i = i + 1
             await bot.send_media_group(
                 chat_id=update.chat.id,
-                video=the_real_download_location,
-                supports_streaming=True,
                 disable_notification=True,
                 reply_to_message_id=a.message_id,
                 media=media_album_p
@@ -114,13 +113,13 @@ async def generate_screen_shot(bot, update):
             await bot.send_video(
                 chat_id=update.chat.id,
                 video=the_real_download_location,
-                caption="© @Hx_AnyDLBot " + file_name,
+                caption="© @Modbots " + file_name,
                 #duration=duration,
                 #width=width,
                 #height=height,
                 supports_streaming=True,
                 # reply_markup=reply_markup,
-                #thumb=thumb_image_path,
+                thumb=thumb_image_path,
                 reply_to_message_id=update.reply_to_message.message_id,
                 progress=progress_for_pyrogram,
                 progress_args=(
