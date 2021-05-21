@@ -34,7 +34,7 @@ async def generate_screen_shot(bot, update):
     TRChatBase(update.from_user.id, update.text, "generatescss")
     if update.reply_to_message is not None:
         cmd, file_name = update.text.split(" ", 1)
-        thumb_image_path = Config.THUMBER + "/" + ".jpg"
+        thumb_image_path = Config.THUMBER + "/" + "moviez_trends.jpg"
         if len(file_name) > 128:
             await update.reply_text(
                 Translation.IFLONG_FILE_NAME.format(
