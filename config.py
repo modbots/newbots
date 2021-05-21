@@ -30,7 +30,7 @@ INDEX_URL = [
     "https://dl.null.tech/0:/Series",
     "https://dl.null.tech/0:/Roms"
 ]
-© 2021 GitHub, Inc.
+
 class Config(object):
     # get a token from https://chatbase.com
     CHAT_BASE_TOKEN = ""
