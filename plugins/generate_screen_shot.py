@@ -109,11 +109,10 @@ async def generate_screen_shot(bot, update):
                 chat_id=update.chat.id,
                 disable_notification=True,
                 reply_to_message_id=a.message_id,
-                media=media_album_p,
-                c_time
-                
-            )
-            
+                media=media_album_p
+               
+            ) 
+            time.time()
             await bot.send_video(
                 chat_id=update.chat.id,
                 video=the_real_download_location,
