@@ -35,10 +35,10 @@ async def generate_screen_shot(bot, update):
     if update.reply_to_message is not None:
         cmd, file_name = update.text.split(" ", 1)
         thumb_image_path = Config.THUMBER + "/" + "moviez_trends.jpg"
-        if len(file_name) > 128:
+        if len(file_name) > 5128:
             await update.reply_text(
                 Translation.IFLONG_FILE_NAME.format(
-                    alimit="128",
+                    alimit="5128",
                     num=len(file_name)
                 )
             )
