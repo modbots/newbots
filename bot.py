@@ -5,7 +5,7 @@ from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram.errors.exceptions.bad_request_400 import MessageEmpty, MessageNotModified
 
-from drive import drive
+
 from requests import get as g
 # the logging things
 import logging
