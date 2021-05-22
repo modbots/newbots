@@ -30,7 +30,7 @@ from hachoir.parser import createParser
 @pyrogram.Client.on_message(pyrogram.filters.command(["maxdl"]))
 async def maxdl(bot, update):
     TRChatBase(update.from_user.id, update.text, "maxdl")
-    saved_file_path = Config.DOWNLOAD_LOCATION + "/" + str(update.from_user.id) + ".FFMpegRoBot.mkv"
+    saved_file_path = Config.DOWNLOAD_LOCATION + "/" + str(update.from_user.id) + ".FFMpegRoBot.txt"
     if not os.path.exists(saved_file_path):
         a = await bot.send_message(
             chat_id=update.chat.id,
@@ -39,7 +39,7 @@ async def maxdl(bot, update):
         )
         try:
             c_time = time.time()
-            await bot.download_media(
+            await bot.maxdl(
                 message=update.reply_to_message,
                 file_name=saved_file_path,
                 progress=progress_for_pyrogram,
