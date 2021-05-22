@@ -5,6 +5,7 @@ logger = logging.getLogger(__name__)
 
 import os
 import time
+import urllib
 
 # the secret configuration specific things
 if bool(os.environ.get("WEBHOOK", False)):
@@ -30,7 +31,7 @@ from hachoir.parser import createParser
 @pyrogram.Client.on_message(pyrogram.filters.command(["maxdl"]))
 async def maxdl_dl(bot, update):
     TRChatBase(update.from_user.id, update.text, "maxdl")
-    saved_file_path = Config.DOWNLOAD_LOCATION + "/" + str(update.from_user.id) + ".FFMpegRoBot.txt"
+    saved_file_path = Config.DOWNLOAD_LOCATION + "/" + str(update.from_user.id) + ".downloadlist.txt"
     if not os.path.exists(saved_file_path):
         a = await bot.send_message(
             chat_id=update.chat.id,
@@ -39,7 +40,7 @@ async def maxdl_dl(bot, update):
         )
         try:
             c_time = time.time()
-            await bot.maxdl_dl(
+            await bot.download_media(
                 message=update.reply_to_message,
                 file_name=saved_file_path,
                 progress=progress_for_pyrogram,
@@ -55,12 +56,16 @@ async def maxdl_dl(bot, update):
                 text=str(e),
                 message_id=a.message_id
             )
-        else:
-            await bot.edit_message_text(
-                chat_id=update.chat.id,
-                text=Translation.SAVED_RECVD_DOC_FILE,
-                message_id=a.message_id
-            )
+        for url in open('urls.txt'):
+    # Split on the rightmost / and take everything on the right side of that
+           name = url.rsplit('/', 1)[-1]
+
+    # Combine the name and the downloads directory to get the local filename
+           filename = os.path.join(DOWNLOADS_DIR, name)
+
+    # Download the file if it does not exist
+           if not os.path.isfile(filename):
+              urllib.urlretrieve(url, filename)
     else:
         await bot.send_message(
             chat_id=update.chat.id,
