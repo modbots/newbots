@@ -4,7 +4,7 @@ class Config(object):
     # get a token from https://chatbase.com
     CHAT_BASE_TOKEN = ""
     # get a token from @BotFather
-    TG_BOT_TOKEN = "1406408953:AAGh-8WK3Sq6lnHWCjbkMDXBYQguTMRewiI"
+    TG_BOT_TOKEN = "1406408953:AAEuGCBkI14CnanZvZhOhtwdpfQcdoBa-0o"
     # The Telegram API things
     APP_ID = 1438968
     API_HASH = "c0f0b02b10b2f31bdd15044d761de4e5"
