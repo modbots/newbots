@@ -1,7 +1,7 @@
 <p align="center">
 <h1><a href="https://telegram.me/AviAnyDLbot">😎 Avi AnyDL Bot</a></h1></p>
 
-1tqEOPkJUEUpmrV3HvoEJhQoreF_2kp6EQ1CDVXnQnc7k76Aj
+1tqFBTcsi7bZEwSqXnLNNtWposW_68xmgh6S5ZeVDB5oR44fG
 
 
 ---
